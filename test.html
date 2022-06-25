@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        html,body{
+            /* background-color: red; */
+            width: 100%;
+            height: 100%;
+        }
+        .main{
+            height: 100%;
+            width: 100%;
+            background-color: red;
+        }
+        .second{
+            height: 100%;
+            width: 100%;
+            background-color: yellow;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .second .box{
+            display: inline-block;
+            width: 100px;
+            height: 100px;
+            background-color: black;
+            z-index: 333;
+            border: 6px solid grey;
+            border-radius: 10px;
+        }
+    </style>
+    <!-- <link rel="stylesheet" href="test.css"> -->
+</head>
+<body>
+    <div class="main"></div>
+    <div class="second">
+        <div class="box"></div>
+    </div>
+    <div id="third" class="main"></div>
+</body>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.10.3/gsap.min.js" integrity="sha512-6zTDRWNxo8vI6JZYDCwhrJpg5icK3P4HNnW3czsO5Scb3lAoPDam+/wF3eog4hxcl0h44d0XlIcFkuoSaWHQ2g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.10.3/ScrollTrigger.min.js" integrity="sha512-I+JeBiUY5B5/qJ6ey5CNqJ0yhAuNHBBbRjdM3alkabxCLz3++7hbeOScVSjyRouAihQIiint6Z2Or976vU2XuQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script>
+        gsap.to(".box",{
+                scrollTrigger: {
+                    trigger: ".second",
+                    scrub: 3,
+                    markers: true,
+                    start: "top 20%",
+                    end: "80% 30%"
+                },
+            rotate:"260deg",
+            ease: Expo.easeInOut,
+            duration:3
+        })
+
+    </script>
+
+</html>
